@@ -1,13 +1,13 @@
 package com.xbrainteste.testebackend.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_seller")
 public class Seller implements Serializable
 {
     // Serializable
@@ -17,6 +17,10 @@ public class Seller implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // Relationship
+    @OneToMany(mappedBy = "seller")
+    private List<Sale> sales = new ArrayList<>();
 
     // Constructors
     public Seller(){}
@@ -45,6 +49,11 @@ public class Seller implements Serializable
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    public List<Sale> getSales()
+    {
+        return sales;
     }
 
     // Hashcode and Equals
