@@ -1,5 +1,7 @@
 package com.xbrainteste.testebackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class Seller implements Serializable
 
     // Relationship
     @OneToMany(mappedBy = "seller")
+    @JsonManagedReference
     private List<Sale> sales = new ArrayList<>();
 
     // Constructors
@@ -54,6 +57,16 @@ public class Seller implements Serializable
     public List<Sale> getSales()
     {
         return sales;
+    }
+
+    public Double getTotalSales()
+    {
+        Double sum = 0.0;
+        for(Sale x: sales)
+        {
+            sum += x.getValue();
+        }
+        return sum;
     }
 
     // Hashcode and Equals

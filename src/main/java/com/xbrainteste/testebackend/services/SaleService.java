@@ -25,4 +25,9 @@ public class SaleService
 
         return Sale.get();
     }
+
+    public Sale insert(Sale sale)
+    {
+        return saleRepository.save(sale);
+    }
 }
