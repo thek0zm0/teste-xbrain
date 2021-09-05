@@ -18,14 +18,13 @@ Datas criadas com instant padrao ISO 8601
 #--Inserir nova venda--
 Endpoint: /sales
 Body Json (exemplo): 
-    {
-        "value" : 25.0,
-        "date" : "2020-08-20T06:20:00Z", 
-        "seller" : { "id": 1}
-    }
+    "value" : 25.0,
+    "date" : "2020-08-20T06:20:00Z", 
+    "seller" : { "id": 1}
+
 #--Lista de vendededores e medias--
 Endpoint: /sales/between
 Parameters (exemplo): 
 Key	                Value
-startDate	          2020-01-01T07:20:00Z
+startDate	        2020-01-01T07:20:00Z
 endDate	            2020-02-22T14:50:00Z
