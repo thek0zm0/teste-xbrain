@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -16,9 +15,6 @@ public class SellerResource
 {
     @Autowired
     private SellerService sellerService;
-
-    @Autowired
-    private SellerRepository sellerRepository;
 
     @GetMapping
     public ResponseEntity<List<Seller>> findAll()

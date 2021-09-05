@@ -7,11 +7,9 @@ import org.springframework.stereotype.Repository;
 
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 
 
-// This class save sellers in the database
 @Repository
 public interface SaleRepository extends JpaRepository<Sale, Long>
 {

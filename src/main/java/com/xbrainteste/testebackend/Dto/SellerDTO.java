@@ -1,38 +1,72 @@
 package com.xbrainteste.testebackend.Dto;
 
-import com.xbrainteste.testebackend.entities.Seller;
-
 public class SellerDTO
 {
-    private Seller seller;
+    private Long id;
+    private String name;
+    private Double dailyAverageQty;
+    private Double dailyAverageAmount;
+    private Double salesQty;
 
-    private Double dailyAverageByDates;
 
     public SellerDTO(){}
 
-    public SellerDTO(Seller seller, Double dailyAverageByDates)
+    public SellerDTO(Long id, String name, Double dailyAverageQty, Double dailyAverageAmount, Double salesQty)
     {
-        this.seller = seller;
-        this.dailyAverageByDates = dailyAverageByDates;
+        this.id = id;
+        this.name = name;
+        this.dailyAverageQty = dailyAverageQty;
+        this.dailyAverageAmount = dailyAverageAmount;
+        this.salesQty = salesQty;
     }
 
-    public Seller getSeller()
+    public Long getId()
     {
-        return seller;
+        return id;
     }
 
-    public void setSeller(Seller seller)
+    public void setId(Long id)
     {
-        this.seller = seller;
+        this.id = id;
     }
 
-    public Double getDailyAverageByDates()
+    public String getName()
     {
-        return dailyAverageByDates;
+        return name;
     }
 
-    public void setDailyAverageByDates(Double dailyAverageByDates)
+    public void setName(String name)
     {
-        this.dailyAverageByDates = dailyAverageByDates;
+        this.name = name;
+    }
+
+    public Double getDailyAverageQty()
+    {
+        return dailyAverageQty;
+    }
+
+    public void setDailyAverageQty(Double dailyAverageQty)
+    {
+        this.dailyAverageQty = dailyAverageQty;
+    }
+
+    public Double getDailyAverageAmount()
+    {
+        return dailyAverageAmount;
+    }
+
+    public void setDailyAverageAmount(Double dailyAverageAmount)
+    {
+        this.dailyAverageAmount = dailyAverageAmount;
+    }
+
+    public Double getSalesQty()
+    {
+        return salesQty;
+    }
+
+    public void setSalesQty(Double salesQty)
+    {
+        this.salesQty = salesQty;
     }
 }

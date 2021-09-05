@@ -59,17 +59,19 @@ public class SaleResource
 
         return saleRepository.findAllByDateBetween(startDate, endDate).stream()
                 .filter( sale -> sale.getDate().isBefore(endDate) && sale.getDate().isAfter(startDate))
-                .collect(Collectors.groupingBy(Sale::getSeller))
+                .collect(Collectors.groupingBy(sale1 -> sale1.getSeller()))
                 .entrySet()
                 .stream()
                 .map( x->
                 {
+                    Double salesQty = 0.0;
                     Double total = 0.0;
                     for(Sale sale : x.getValue())
                     {
                         total += sale.getValue();
+                        salesQty++;
                     }
-                    return new SellerDTO(x.getKey(), total/days);
+                    return new SellerDTO(x.getKey().getId(), x.getKey().getName(), salesQty/days, total/days, salesQty);
                 }).collect(Collectors.toList());
     }
 }
