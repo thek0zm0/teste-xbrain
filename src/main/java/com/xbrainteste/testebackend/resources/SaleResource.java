@@ -27,6 +27,7 @@ public class SaleResource
     @Autowired
     private SaleRepository saleRepository;
 
+    // Find all sales
     @GetMapping
     public ResponseEntity<List<Sale>> findAll()
     {
@@ -35,6 +36,7 @@ public class SaleResource
         return ResponseEntity.ok().body(list);
     }
 
+    // Find sales by id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Sale> finById(@PathVariable Long id)
     {
@@ -42,6 +44,7 @@ public class SaleResource
         return ResponseEntity.ok().body(sale);
     }
 
+    // Save new Sale
     @PostMapping
     public ResponseEntity<Sale> saveSale(@RequestBody Sale sale)
     {
@@ -51,6 +54,7 @@ public class SaleResource
         return ResponseEntity.created(uri).body(sale);
     }
 
+    // Get sellers (SellerDTO) list that have sales between params
     @GetMapping(value = "/between")
     public List<SellerDTO> findBetween(@RequestParam Instant startDate,
                                                     @RequestParam Instant endDate)

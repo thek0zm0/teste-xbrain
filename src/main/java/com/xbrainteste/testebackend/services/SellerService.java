@@ -14,11 +14,13 @@ public class SellerService
     @Autowired
     private SellerRepository sellerRepository;
 
+    // Find all sellers
     public List<Seller> findAll()
     {
         return sellerRepository.findAll();
     }
 
+    // Find seller by id
     public Seller findById(Long id)
     {
         Optional<Seller> seller = sellerRepository.findById(id);

@@ -59,6 +59,7 @@ public class Seller implements Serializable
         return sales;
     }
 
+    // Total sales value by this seller
     public Double getTotalSales()
     {
         Double sum = 0.0;

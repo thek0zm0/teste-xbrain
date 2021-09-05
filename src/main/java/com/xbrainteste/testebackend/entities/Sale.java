@@ -3,8 +3,11 @@ package com.xbrainteste.testebackend.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -19,11 +22,16 @@ public class Sale implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull(message = "Value is mandatory")
     private Double value;
+
+    @NotNull(message = "Date is mandatory")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant date;
 
     // Relationship
+    @NotNull(message = "Seller is mandatory")
     @ManyToOne
     @JoinColumn(name = "seller_id")
     @JsonBackReference

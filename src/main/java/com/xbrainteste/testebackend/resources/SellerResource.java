@@ -16,6 +16,7 @@ public class SellerResource
     @Autowired
     private SellerService sellerService;
 
+    // Find all sellers
     @GetMapping
     public ResponseEntity<List<Seller>> findAll()
     {
@@ -24,6 +25,7 @@ public class SellerResource
         return ResponseEntity.ok().body(list);
     }
 
+    // Find seller by id Endpoint
     @GetMapping(value = "/{id}")
     public ResponseEntity<Seller> finById(@PathVariable Long id)
     {

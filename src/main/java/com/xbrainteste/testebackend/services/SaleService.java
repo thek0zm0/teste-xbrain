@@ -5,8 +5,7 @@ import com.xbrainteste.testebackend.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -16,11 +15,13 @@ public class SaleService
     @Autowired
     private SaleRepository saleRepository;
 
+    // Find all sales
     public List<Sale> findAll()
     {
         return saleRepository.findAll();
     }
 
+    // Find sale by id
     public Sale findById(Long id)
     {
         Optional<Sale> Sale = saleRepository.findById(id);
@@ -28,6 +29,7 @@ public class SaleService
         return Sale.get();
     }
 
+    // Create new sale
     public Sale insert(Sale sale)
     {
         return saleRepository.save(sale);
